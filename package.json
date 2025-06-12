@@ -8,12 +8,15 @@
     "dist/"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish"
   },
   "peerDependencies": {
     "monaco-editor": "^0.52.2"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.4",
     "monaco-editor": "^0.52.2",
     "typescript": "^5.8.3"
   }
