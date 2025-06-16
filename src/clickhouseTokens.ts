@@ -3,6 +3,8 @@ import {
   CLICKHOUSE_KEYWORDS,
   CLICKHOUSE_FUNCTIONS,
   CLICKHOUSE_ENGINES,
+  CLICKHOUSE_SETTINGS,
+  CLICKHOUSE_SYSTEM_TABLES,
 } from "./keywords";
 
 export const clickhouseLanguage: monaco.languages.IMonarchLanguage = {
@@ -13,6 +15,8 @@ export const clickhouseLanguage: monaco.languages.IMonarchLanguage = {
   keywords: CLICKHOUSE_KEYWORDS,
   functions: CLICKHOUSE_FUNCTIONS,
   engines: CLICKHOUSE_ENGINES,
+  settings: CLICKHOUSE_SETTINGS,
+  system_tables: CLICKHOUSE_SYSTEM_TABLES,
 
   operators: [
     "=",
@@ -49,8 +53,9 @@ export const clickhouseLanguage: monaco.languages.IMonarchLanguage = {
         {
           cases: {
             "@keywords": "keyword",
-            "@functions": "function",
             "@engines": "type",
+            "@settings": "variable.setting",
+            "@system_tables": "variable.system",
             "@builtinConstants": "constant",
             "@default": "identifier",
           },
