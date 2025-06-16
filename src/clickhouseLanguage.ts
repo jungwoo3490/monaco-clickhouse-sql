@@ -4,6 +4,8 @@ import {
   CLICKHOUSE_KEYWORDS,
   CLICKHOUSE_FUNCTIONS,
   CLICKHOUSE_ENGINES,
+  CLICKHOUSE_SETTINGS,
+  CLICKHOUSE_SYSTEM_TABLES,
 } from "./keywords";
 
 export function registerClickHouseLanguage(monacoInstance: typeof monaco) {
@@ -82,6 +84,24 @@ export function registerClickHouseLanguage(monacoInstance: typeof monaco) {
           label: engine,
           kind: monacoInstance.languages.CompletionItemKind.Class,
           insertText: engine,
+          range,
+        });
+      });
+
+      CLICKHOUSE_SETTINGS.forEach((setting) => {
+        suggestions.push({
+          label: setting,
+          kind: monacoInstance.languages.CompletionItemKind.Variable,
+          insertText: setting,
+          range,
+        });
+      });
+
+      CLICKHOUSE_SYSTEM_TABLES.forEach((table) => {
+        suggestions.push({
+          label: table,
+          kind: monacoInstance.languages.CompletionItemKind.Struct,
+          insertText: table,
           range,
         });
       });
